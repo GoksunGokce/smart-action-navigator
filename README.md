@@ -69,7 +69,5 @@ The project is designed to be extended. Potential next steps include:
   - Use Amazon RDS for PostgreSQL persistence  
   - Optionally integrate CloudWatch for logging/monitoring
 
-- **Multi-language support (i18n)**  
-  Add support for more languages through Angular's built-in i18n or custom translation service.
 
 
