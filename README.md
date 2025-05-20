@@ -1,59 +1,75 @@
-# FrontendClassic
+# Smart Action Navigator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Smart Action Navigator is a full-stack web application that allows users to input any task and receive a clear, step-by-step breakdown powered by a large language model (LLM).  
+The application stores all previously clarified tasks using PostgreSQL and displays them in an interactive, collapsible card interface.
 
-## Development server
+---
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+-  Submit any technical or non-technical task as free text
+-  Get detailed multi-step explanations from an LLM (via Together API)
+-  Stores all clarified tasks in a PostgreSQL database
+-  Expandable/collapsible cards to view past tasks and responses
+-  Modern UI built with Angular
+-  Organized backend with Flask and SQLAlchemy
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Technology Stack
 
-```bash
-ng generate component component-name
-```
+| Layer      | Technology                         |
+|------------|-------------------------------------|
+| Frontend   | Angular (with standalone components)* |
+| Backend    | Flask, Flask-CORS, SQLAlchemy       |
+| Database   | PostgreSQL                          |
+| AI Model   | Together API (LLM-based model)      |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> *The frontend structure may leverage Angular's standalone component architecture, depending on how modules and services are extended.*
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Screenshots
 
-To build the project run:
+### Homepage – No task entered yet
+![Homepage](demo/homepage.png)
 
-```bash
-ng build
-```
+### Task being submitted – Loading view + existing tasks
+![Loading State](demo/list1.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### LLM response shown after task submission
+![Task Answer](demo/list2.png)
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Local Setup
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### Backend
 
 ```bash
-ng e2e
-```
+cd backend
+python -m venv venv
+venv\Scripts\activate  # or source venv/bin/activate
+pip install -r requirements.txt
+python init_db.py
+python app.py
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Future Development Ideas
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The project is designed to be extended. Potential next steps include:
+
+- **User Authentication**  
+  Allow users to register and log in, and store task history per user.
+
+- **Deployment on AWS**  
+  - Host backend on AWS EC2 or Lambda  
+  - Serve frontend on AWS Amplify or S3  
+  - Use Amazon RDS for PostgreSQL persistence  
+  - Optionally integrate CloudWatch for logging/monitoring
+
+- **Multi-language support (i18n)**  
+  Add support for more languages through Angular's built-in i18n or custom translation service.
+
+
