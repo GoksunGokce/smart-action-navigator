@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Smart Action Navigator</h2>
+
+  <textarea
+    [(ngModel)]="task"
+    placeholder="Describe your task here..."
+    rows="5"
+  ></textarea>
+
+  <br /><br />
+  <button (click)="submitTask()">Clarify Task</button>
+  <button (click)="clearAll()">Clear</button>
+
+  <div *ngIf="loading">
+    <p><em>Loading steps, please wait...</em></p>
+  </div>
+
+  <div *ngIf="steps && !loading">
+    <h3>Suggested Steps:</h3>
+    <pre [innerHTML]="steps"></pre>
+  </div>
+
+  <hr />
+
+  <h3 class="section-heading">Previous Clarified Tasks:</h3>
+  <div *ngFor="let answer of answers" class="answer-card" (click)="toggleAnswer(answer.id)"  [ngClass]="{ 'expanded': isExpanded(answer.id)}">
+    <strong>{{ answer.question }}</strong>
+    <p *ngIf="isExpanded(answer.id)">
+      {{ answer.answer }}
+    </p>
+  </div>
+</div>
