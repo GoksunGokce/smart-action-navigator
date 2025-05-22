@@ -63,11 +63,5 @@ The project is designed to be extended. Potential next steps include:
 - **User Authentication**  
   Allow users to register and log in, and store task history per user.
 
-- **Deployment on AWS**  
-  - Host backend on AWS EC2 or Lambda  
-  - Serve frontend on AWS Amplify or S3  
-  - Use Amazon RDS for PostgreSQL persistence  
-  - Optionally integrate CloudWatch for logging/monitoring
-
 
 
